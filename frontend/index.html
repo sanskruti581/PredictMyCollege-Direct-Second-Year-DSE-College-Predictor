@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DSE College Predictor — Predict My College</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="src/styles.css" />
+</head>
+<body>
+
+  <!-- ── Navigation ── -->
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="nav-brand" href="#home">
+        <span class="nav-brand-icon">🎓</span>
+        <span class="nav-brand-name">Predict<span class="nav-brand-accent">My</span>College</span>
+      </a>
+      <nav class="nav-links" aria-label="Site navigation">
+        <a class="nav-link" href="#home">Home</a>
+        <a class="nav-link" href="#about">About</a>
+      </nav>
+      <div class="nav-right">
+        <span class="nav-badge">DSE CAP Predictor</span>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+          <span id="theme-icon">🌙</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── Hero Split ── -->
+  <section id="home" class="hero-section">
+    <div class="hero-inner">
+
+      <!-- Left: Value Prop -->
+      <div class="hero-left">
+        <span class="pill pill-green">✓ 100% Free &amp; No Hidden Charges</span>
+
+        <h1 class="hero-title">
+          Direct Second Year<br />
+          <span class="hero-title-accent">(DSE) College Predictor</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          Predict your college admissions based on <strong>multi-year Maharashtra DSE CAP Round I</strong>
+          cutoff datasets — 33,000+ real records, no guesswork.
+        </p>
+
+        <div class="metric-grid">
+          <div class="metric-card">
+            <span class="metric-icon">📅</span>
+            <span class="metric-value">3+</span>
+            <span class="metric-label">Years CAP Data</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-icon">🗄️</span>
+            <span class="metric-value">33K+</span>
+            <span class="metric-label">Cutoff Records</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-icon">🏛️</span>
+            <span class="metric-value">359</span>
+            <span class="metric-label">Colleges Covered</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Form Card -->
+      <div class="hero-right">
+        <div class="form-card">
+          <div class="form-card-banner">
+            ⚡ Fill all fields below to get accurate results
+          </div>
+
+          <form id="predict-form" class="form-body">
+            <div class="form-grid">
+              <label class="field">
+                <span class="field-label">Diploma Aggregate (%) / DSE Percentile
+                  <span class="field-info" aria-label="Enter MSBTE 5th &amp; 6th sem aggregate % or DSE merit percentile.">ⓘ</span>
+                </span>
+                <input type="number" name="percentile" step="0.01" min="0" max="100"
+                  placeholder="e.g. 87.50" required />
+              </label>
+
+              <label class="field">
+                <span class="field-label">Category</span>
+                <select name="category" id="category" required>
+                  <option value="" disabled selected>Select category</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span class="field-label">Branch <span class="field-optional">(optional)</span></span>
+                <input type="text" name="branch" list="branch-list" placeholder="e.g. Computer Science" />
+                <datalist id="branch-list"></datalist>
+              </label>
+
+              <label class="field">
+                <span class="field-label">Year <span class="field-optional">(optional)</span></span>
+                <select name="year" id="year">
+                  <option value="">Latest available</option>
+                </select>
+              </label>
+            </div>
+
+            <label class="checkbox-label">
+              <input type="checkbox" name="includeStageII" />
+              <span>Include Stage-II results</span>
+            </label>
+
+            <button type="submit" class="cta-btn">
+              <span>Predict My College</span>
+              <span class="cta-arrow">→</span>
+            </button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Results ── -->
+  <div class="results-section">
+    <div class="results-inner">
+      <p id="status" class="status"></p>
+      <div id="results"></div>
+    </div>
+  </div>
+
+  <!-- ── Footer ── -->
+  <footer id="about" class="site-footer">
+    <div class="footer-inner">
+      <div class="about-card">
+        <div class="about-avatar">SS</div>
+        <div class="about-body">
+          <h3 class="about-name">About the Developer</h3>
+          <span class="pill pill-dev" style="margin-bottom:0.75rem">👩‍💻 Developed by Sanskruti Shinde</span>
+          <p class="about-bio">
+            Hi, I'm Sanskruti Shinde. Having navigated the Direct Second Year (DSE) admission process
+            myself during my diploma, I experienced firsthand how challenging it was to analyze past
+            cutoffs without a dedicated tool. I created this predictor to simplify that journey for
+            future students — providing transparent, data-driven cutoff analysis in just a few clicks.
+          </p>
+          <a class="about-email" href="mailto:sanskrutishinde581@gmail.com">
+            ✉ sanskrutishinde581@gmail.com
+          </a>
+        </div>
+      </div>
+      <p class="footer-copy">© 2025 Predict My College · Data: Maharashtra State CET Cell, DSE CAP Round I</p>
+    </div>
+  </footer>
+
+  <script type="module" src="src/main.js"></script>
+  <script>
+    (function () {
+      const saved = localStorage.getItem('pmc-theme') || 'light';
+      document.documentElement.setAttribute('data-theme', saved);
+      document.getElementById('theme-icon').textContent = saved === 'dark' ? '☀️' : '🌙';
+    })();
+    document.getElementById('theme-toggle').addEventListener('click', function () {
+      const html = document.documentElement;
+      const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('pmc-theme', next);
+      document.getElementById('theme-icon').textContent = next === 'dark' ? '☀️' : '🌙';
+    });
+  </script>
+</body>
+</html>

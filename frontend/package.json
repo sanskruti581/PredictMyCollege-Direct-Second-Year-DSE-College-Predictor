@@ -1,0 +1,10 @@
+{
+  "name": "predict-my-college-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static frontend for Predict My College. No build step required — plain ES modules served as-is.",
+  "scripts": {
+    "dev": "npx serve . -l 5173",
+    "build": "echo 'No build step needed: this is plain HTML/CSS/JS. Just deploy the frontend/ folder as-is.'"
+  }
+}

@@ -1,0 +1,9 @@
+
+> predict-my-college-frontend@1.0.0 dev
+> npx serve . -l 5173
+
+ INFO  Accepting connections at http://localhost:5173
+ HTTP  7/27/2026 12:05:52 PM ::1 GET /data/meta.json
+ HTTP  7/27/2026 12:05:52 PM ::1 GET /public/data/meta.json
+ HTTP  7/27/2026 12:05:52 PM ::1 Returned 200 in 13 ms
+ HTTP  7/27/2026 12:05:52 PM ::1 Returned 404 in 50 ms
