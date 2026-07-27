@@ -1,3 +1,6 @@
+#Deployement Link:
+https://predictmycollegedse.netlify.app/
+
 # Predict My College
 
 Predicts which colleges and branches a student is likely to get, based on historical Maharashtra Direct Second Year (DSE) Engineering CAP Round cutoff data. It uses a static architecture with no database required—only static JSON files and a client-side frontend.
